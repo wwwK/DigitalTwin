@@ -84,16 +84,16 @@ class Ui_MainWindow(object):
         self.miniumButton.clicked.connect(MainWindow.lower)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-        #  窗口美化
-        MainWindow.setWindowOpacity(0.9)  # 设置窗口透明度
-        MainWindow.setWindowFlag(QtCore.Qt.FramelessWindowHint)  # 隐藏边框
-
-        self.closeButton.setFixedSize(15,15)
-        self.miniumButton.setFixedSize(15,15)
-        self.closeButton.setStyleSheet(
-            '''QPushButton{background:#F76677;border-radius:5px;}QPushButton:hover{background:red;}''')
-        self.miniumButton.setStyleSheet(
-            '''QPushButton{background:#6DDF6D;border-radius:5px;}QPushButton:hover{background:green;}''')
+        # #  窗口美化
+        # MainWindow.setWindowOpacity(0.9)  # 设置窗口透明度
+        # MainWindow.setWindowFlag(QtCore.Qt.FramelessWindowHint)  # 隐藏边框
+        #
+        # self.closeButton.setFixedSize(15,15)
+        # self.miniumButton.setFixedSize(15,15)
+        # self.closeButton.setStyleSheet(
+        #     '''QPushButton{background:#F76677;border-radius:5px;}QPushButton:hover{background:red;}''')
+        # self.miniumButton.setStyleSheet(
+        #     '''QPushButton{background:#6DDF6D;border-radius:5px;}QPushButton:hover{background:green;}''')
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
