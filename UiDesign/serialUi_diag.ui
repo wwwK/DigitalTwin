@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>901</width>
-    <height>491</height>
+    <width>867</width>
+    <height>517</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,7 +16,7 @@
   <widget class="QPushButton" name="closeButton">
    <property name="geometry">
     <rect>
-     <x>560</x>
+     <x>710</x>
      <y>40</y>
      <width>31</width>
      <height>23</height>
@@ -48,7 +48,7 @@
   <widget class="QPushButton" name="miniumButton">
    <property name="geometry">
     <rect>
-     <x>520</x>
+     <x>670</x>
      <y>40</y>
      <width>31</width>
      <height>23</height>
@@ -163,5 +163,38 @@
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>miniumButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>lower()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>685</x>
+     <y>50</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>547</x>
+     <y>198</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>closeButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>731</x>
+     <y>50</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>543</x>
+     <y>260</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

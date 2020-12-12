@@ -14,9 +14,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(901, 491)
+        Dialog.resize(867, 517)
         self.closeButton = QtWidgets.QPushButton(Dialog)
-        self.closeButton.setGeometry(QtCore.QRect(560, 40, 31, 23))
+        self.closeButton.setGeometry(QtCore.QRect(710, 40, 31, 23))
         self.closeButton.setText("")
         self.closeButton.setObjectName("closeButton")
         self.stopButton = QtWidgets.QPushButton(Dialog)
@@ -27,7 +27,7 @@ class Ui_Dialog(object):
         self.stopButton.setFont(font)
         self.stopButton.setObjectName("stopButton")
         self.miniumButton = QtWidgets.QPushButton(Dialog)
-        self.miniumButton.setGeometry(QtCore.QRect(520, 40, 31, 23))
+        self.miniumButton.setGeometry(QtCore.QRect(670, 40, 31, 23))
         self.miniumButton.setText("")
         self.miniumButton.setObjectName("miniumButton")
         self.startButton = QtWidgets.QPushButton(Dialog)
@@ -87,6 +87,8 @@ class Ui_Dialog(object):
         self.horizontalLayout_3.addWidget(self.LlineEdit)
 
         self.retranslateUi(Dialog)
+        self.miniumButton.clicked.connect(Dialog.lower)
+        self.closeButton.clicked.connect(Dialog.close)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
