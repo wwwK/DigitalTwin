@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>867</width>
-    <height>517</height>
+    <width>1135</width>
+    <height>524</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -161,7 +161,25 @@
     </item>
    </layout>
   </widget>
+  <widget class="MatplotlibWidget" name="plotElectricity" native="true">
+   <property name="geometry">
+    <rect>
+     <x>650</x>
+     <y>100</y>
+     <width>331</width>
+     <height>161</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MatplotlibWidget</class>
+   <extends>QWidget</extends>
+   <header>MatplotlibWidget</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections>
   <connection>

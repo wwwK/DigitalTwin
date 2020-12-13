@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(867, 517)
+        Dialog.resize(1135, 524)
         self.closeButton = QtWidgets.QPushButton(Dialog)
         self.closeButton.setGeometry(QtCore.QRect(710, 40, 31, 23))
         self.closeButton.setText("")
@@ -85,6 +85,9 @@ class Ui_Dialog(object):
         self.LlineEdit = QtWidgets.QLineEdit(self.layoutWidget_3)
         self.LlineEdit.setObjectName("LlineEdit")
         self.horizontalLayout_3.addWidget(self.LlineEdit)
+        self.plotElectricity = MatplotlibWidget(Dialog)
+        self.plotElectricity.setGeometry(QtCore.QRect(650, 100, 331, 161))
+        self.plotElectricity.setObjectName("plotElectricity")
 
         self.retranslateUi(Dialog)
         self.miniumButton.clicked.connect(Dialog.lower)
@@ -99,3 +102,4 @@ class Ui_Dialog(object):
         self.Vlabel.setText(_translate("Dialog", "电压："))
         self.Alabel.setText(_translate("Dialog", "电流："))
         self.Llabel.setText(_translate("Dialog", "保护气流量："))
+from UiDesign.MatplotlibWidget import MatplotlibWidget
