@@ -6,9 +6,10 @@
 # @Software: win10 Tensorflow1.13.1 python3.5.6
 
 
-from matplotlib.font_manager import FontProperties
+# from matplotlib.font_manager import FontProperties
 import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib
 
 
 # 加载数据
@@ -21,7 +22,7 @@ def loadDataSet(fileName):
         yArr - y数据集
     """
     numFeat = len(open(fileName).readline().split('\t')) - 1
-    xArr = [];
+    xArr = []
     yArr = []
     fr = open(fileName)
     for line in fr.readlines():
@@ -36,7 +37,8 @@ def loadDataSet(fileName):
 
 # 绘制多条局部加权回归曲线
 def plotlwlrRegression():
-    font = FontProperties(fname=r"c:\windows\fonts\simsun.ttc", size=14)
+    # font = FontProperties(fname=r"c:\windows\fonts\simsun.ttc", size=14)
+    matplotlib.rcParams['font.sans-serif'] = ['KaiTi']
     xArr, yArr = loadDataSet('../data/ex0.txt')  # 加载数据集
     yHat_1 = lwlrTest(xArr, xArr, yArr, 1.0)  # 根据局部加权线性回归计算yHat
     yHat_2 = lwlrTest(xArr, xArr, yArr, 0.01)  # 根据局部加权线性回归计算yHat
@@ -53,9 +55,9 @@ def plotlwlrRegression():
     axs[1].scatter(xMat[:, 1].flatten().A[0], yMat.flatten().A[0], s=20, c='blue', alpha=.5)  # 绘制样本点
     axs[2].scatter(xMat[:, 1].flatten().A[0], yMat.flatten().A[0], s=20, c='blue', alpha=.5)  # 绘制样本点
     # 设置标题,x轴label,y轴label
-    axs0_title_text = axs[0].set_title(u'局部加权回归曲线,k=1.0', FontProperties=font)
-    axs1_title_text = axs[1].set_title(u'局部加权回归曲线,k=0.01', FontProperties=font)
-    axs2_title_text = axs[2].set_title(u'局部加权回归曲线,k=0.003', FontProperties=font)
+    axs0_title_text = axs[0].set_title(u'局部加权回归曲线,k=1.0')
+    axs1_title_text = axs[1].set_title(u'局部加权回归曲线,k=0.01')
+    axs2_title_text = axs[2].set_title(u'局部加权回归曲线,k=0.003')
     plt.setp(axs0_title_text, size=8, weight='bold', color='red')
     plt.setp(axs1_title_text, size=8, weight='bold', color='red')
     plt.setp(axs2_title_text, size=8, weight='bold', color='red')
@@ -74,7 +76,7 @@ def lwlr(testPoint, xArr, yArr, k=1.0):
     Returns:
         ws - 回归系数
     """
-    xMat = np.mat(xArr);
+    xMat = np.mat(xArr)
     yMat = np.mat(yArr).T
     m = np.shape(xMat)[0]
     weights = np.mat(np.eye((m)))  # 创建权重对角矩阵
@@ -100,6 +102,8 @@ def lwlrTest(testArr, xArr, yArr, k=1.0):
     Returns:
         ws - 回归系数
     """
+    # print(xArr)
+    # print(yArr)
     m = np.shape(testArr)[0]  # 计算测试数据集大小
     yHat = np.zeros(m)
     for i in range(m):  # 对每个样本点进行预测
