@@ -116,7 +116,7 @@ if __name__ == '__main__':
     xArr,yArr=loadDataSet("../welding.txt",2)
     print(xArr)
     print(yArr)
-    yMat=np.array(yArr)
+    yMat=np.array(yArr)  # lwlr输入的yArr的形状是一行n列的形式，每列对应着xArr的结果值
     print(lwlr([8.0,5.0],xArr,yMat[:,1].reshape(1,-1),k=0.5))
 
 
