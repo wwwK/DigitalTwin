@@ -4,7 +4,7 @@ import matplotlib
 
 
 # 加载数据
-def loadDataSet(fileName,xNum):
+def loadDataSet(fileName,xNum=2):
     """
     Parameters:
         fileName - 文件名

@@ -20,7 +20,7 @@ Returns:
 
 # 创建单层决策树的数据集
 def loadSimpData():
-    datMat = np.matrix([[1., 2.1],
+    datMat = np.mat([[1., 2.1],
                         [1.5, 1.6],
                         [1.3, 1.],
                         [1., 1.],

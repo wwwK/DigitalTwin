@@ -18,17 +18,44 @@ Returns:
 """
 
 
-# 创建单层决策树的数据集
-def loadSimpData():
-    datMat = np.matrix([[1., 2.1],
-                        [1.5, 1.6],
-                        [1.3, 1.],
-                        [1., 1.],
-                        [2., 1.]])
-    classLabels = [1.0, 1.0, -1.0, -1.0, 1.0]
-    return datMat, classLabels
+# # 创建单层决策树的数据集
+# def loadSimpData():
+#     datMat = np.matrix([[1., 2.1],
+#                         [1.5, 1.6],
+#                         [1.3, 1.],
+#                         [1., 1.],
+#                         [2., 1.]])
+#     classLabels = [1.0, 1.0, -1.0, -1.0, 1.0]
+#     return datMat, classLabels
 
-
+# 加载焊接数据
+def loadDataSet(fileName,xNum=2):
+    """
+    Parameters:
+        fileName - 文件名
+    Returns:
+        xArr - x数据集
+        yArr - y数据集
+    """
+    xArr = []
+    yArr = []
+    featureName=open(fileName,encoding='utf-8').readline().split('\t')
+    numFeat = len(featureName)
+    fr = open(fileName)
+    fr.readline()
+    for line in fr.readlines():
+        xLine = []
+        yLine=[]
+        curLine = line.strip().split('\t')
+        for i in range(numFeat):
+            if i<xNum:
+                xLine.append(float(curLine[i]))
+            else:
+                yLine.append(float(curLine[i]))
+        xArr.append(xLine)
+        yArr.append(yLine)
+    print(featureName)
+    return xArr, yArr
 """
 Parameters:
     dataMat - 数据矩阵
@@ -64,14 +91,14 @@ Returns:
     retArray - 分类结果
 """
 
-
+# 这里原代码写错了，把阈值改为自己实际分类的值，并且跟大于、小于阈值相对应
 # 单层决策树分类函数
 def stumpClassify(dataMatrix, dimen, threshVal, threshIneq):
     retArray = np.ones((np.shape(dataMatrix)[0], 1))  # 初始化retArray为1
     if threshIneq == 'lt':
-        retArray[dataMatrix[:, dimen] <= threshVal] = -1.0  # 如果小于阈值,则赋值为-1
+        retArray[dataMatrix[:, dimen] <= threshVal] = 0.0  # 如果小于阈值,则赋值为0
     else:
-        retArray[dataMatrix[:, dimen] > threshVal] = -1.0  # 如果大于阈值,则赋值为-1
+        retArray[dataMatrix[:, dimen] > threshVal] = 1  # 如果大于阈值,则赋值为1
     return retArray
 
 
@@ -89,15 +116,15 @@ Returns:
 
 # 找到数据集上最佳的单层决策树
 def buildStump(dataArr, classLabels, D):
-    dataMatrix = np.mat(dataArr);
+    dataMatrix = np.mat(dataArr)
     labelMat = np.mat(classLabels).T
     m, n = np.shape(dataMatrix)
-    numSteps = 10.0;
-    bestStump = {};
+    numSteps = 10.0
+    bestStump = {}
     bestClasEst = np.mat(np.zeros((m, 1)))
     minError = float('inf')  # 最小误差初始化为正无穷大
     for i in range(n):  # 遍历所有特征
-        rangeMin = dataMatrix[:, i].min();
+        rangeMin = dataMatrix[:, i].min()
         rangeMax = dataMatrix[:, i].max()  # 找到特征中最小的值和最大值
         stepSize = (rangeMax - rangeMin) / numSteps  # 计算步长
         for j in range(-1, int(numSteps) + 1):
@@ -177,8 +204,11 @@ def adaClassify(datToClass, classifierArr):
 
 
 if __name__ == '__main__':
-    dataArr, classLabels = loadSimpData()
-    print(dataArr.shape)
-    print(classLabels)
+    dataArr, yArr = loadDataSet('../welding.txt',2)
+    dataArr=np.mat(dataArr)
+    classLabels=np.array(yArr)[:,0].reshape(1,-1)
     weakClassArr, aggClassEst = adaBoostTrainDS(dataArr, classLabels)
-    print(adaClassify([[0, 0], [5, 5]], weakClassArr))
+    print(dataArr)
+    print(classLabels)
+    print(weakClassArr)
+    print(adaClassify([[15, 1], [8, 5]], weakClassArr))
