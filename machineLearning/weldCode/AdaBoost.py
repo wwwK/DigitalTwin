@@ -208,7 +208,7 @@ if __name__ == '__main__':
     dataArr=np.mat(dataArr)
     classLabels=np.array(yArr)[:,0].reshape(1,-1)
     weakClassArr, aggClassEst = adaBoostTrainDS(dataArr, classLabels)
-    print(dataArr)
+    print(type(dataArr))
     print(classLabels)
     print(weakClassArr)
     print(adaClassify([[15, 1], [8, 5]], weakClassArr))
