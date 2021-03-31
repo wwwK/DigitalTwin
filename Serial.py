@@ -22,7 +22,7 @@ class SerialWindow(QDialog, Ui_Dialog):
         self.miniumButton.setStyleSheet(
             '''QPushButton{background:#6DDF6D;border-radius:5px;}QPushButton:hover{background:green;}''')
         self.timer=QtCore.QTimer()
-        self.timer.timeout.connect(self.fillText)
+        self.timer.timeout.connect(self.timerStart)
         self.startButton.clicked.connect(self.start)
         self.stopButton.clicked.connect(self.stop)
         # AlineEdit填充变量
@@ -63,9 +63,19 @@ class SerialWindow(QDialog, Ui_Dialog):
         self.ser.close()
         self.conn.close()
 
+    # timer每次调用的函数
+    def timerStart(self):
+        self.readPort()
+
+        self.fillText()
+
+
     def fillText(self):
         self.AlineEdit.setText(str(self.I))
         self.I+=1
+
+    def saveToMysql(self):
+        pass
 
     def readPort(self):
         try:
@@ -75,8 +85,8 @@ class SerialWindow(QDialog, Ui_Dialog):
                 alist = str.split(' ')
                 alist = [float(i) for i in alist]
                 print(alist)
-                # for i in range(len(alist)):
-                #     print(float(alist[i])+1)
+                # 用来在这个文件中传递变量
+                self.data=alist
         except Exception as e:
             print("---异常---：", e)
 
