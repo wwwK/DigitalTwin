@@ -1,4 +1,4 @@
-import pymysql;
+import pymysql
 
 def createDatabase():
     # 打开数据库连接
