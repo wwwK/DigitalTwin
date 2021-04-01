@@ -13,19 +13,6 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QPushButton" name="closeButton">
-   <property name="geometry">
-    <rect>
-     <x>710</x>
-     <y>40</y>
-     <width>31</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
   <widget class="QPushButton" name="stopButton">
    <property name="geometry">
     <rect>
@@ -43,19 +30,6 @@
    </property>
    <property name="text">
     <string>结束</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="miniumButton">
-   <property name="geometry">
-    <rect>
-     <x>670</x>
-     <y>40</y>
-     <width>31</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="startButton">
@@ -170,6 +144,29 @@
      <height>161</height>
     </rect>
    </property>
+  </widget>
+  <widget class="QSplitter" name="splitter">
+   <property name="geometry">
+    <rect>
+     <x>1010</x>
+     <y>30</y>
+     <width>72</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <widget class="QPushButton" name="miniumButton">
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="closeButton">
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
   </widget>
  </widget>
  <customwidgets>
