@@ -90,6 +90,9 @@ class Ui_Dialog(object):
         self.closeButton = QtWidgets.QPushButton(self.splitter)
         self.closeButton.setText("")
         self.closeButton.setObjectName("closeButton")
+        self.plotV = VMatplotlibWidget(Dialog)
+        self.plotV.setGeometry(QtCore.QRect(650, 280, 331, 151))
+        self.plotV.setObjectName("plotV")
 
         self.retranslateUi(Dialog)
         self.miniumButton.clicked.connect(Dialog.lower)
@@ -105,3 +108,4 @@ class Ui_Dialog(object):
         self.Alabel.setText(_translate("Dialog", "电流："))
         self.Llabel.setText(_translate("Dialog", "保护气流量："))
 from UiDesign.MatplotlibWidget import MatplotlibWidget
+from UiDesign.VMatplotlibWidget import VMatplotlibWidget

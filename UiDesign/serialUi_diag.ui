@@ -168,12 +168,28 @@
     </property>
    </widget>
   </widget>
+  <widget class="VMatplotlibWidget" name="plotV" native="true">
+   <property name="geometry">
+    <rect>
+     <x>650</x>
+     <y>280</y>
+     <width>331</width>
+     <height>151</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <customwidgets>
   <customwidget>
    <class>MatplotlibWidget</class>
    <extends>QWidget</extends>
    <header>MatplotlibWidget</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>VMatplotlibWidget</class>
+   <extends>QWidget</extends>
+   <header>VMatplotlibWidget</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

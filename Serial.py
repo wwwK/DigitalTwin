@@ -67,6 +67,8 @@ class SerialWindow(QDialog, Ui_Dialog):
 
         # 画matplotlib
         self.plotElectricity.mpl.start_dynamic_plot()
+        # self.plotV.mpl.start_dynamic_ploc()
+        self.plotV.mpl.start_dynamic_plot()
 
     def stop(self):
         try:
@@ -74,6 +76,7 @@ class SerialWindow(QDialog, Ui_Dialog):
             self.db.close()
             self.ser.close()
             self.plotElectricity.mpl.stop_dynamic_ploc()
+            self.plotV.mpl.stop_dynamic_ploc()
         except Exception as e:
             print('---结束异常---',e)
 
@@ -99,7 +102,9 @@ class SerialWindow(QDialog, Ui_Dialog):
             cursor = self.db.cursor()
             cursor.execute(sql)
             self.db.commit()
+
         except Exception as e:
+            print('插入数据库失败：')
             print(e)
             self.db.rollback()
 
@@ -114,7 +119,7 @@ class SerialWindow(QDialog, Ui_Dialog):
                 # 用来在这个文件中传递变量
                 self.data = alist
                 GlobalVar.set_value('I',alist[0])
-                GlobalVar.set_value('A',alist[1])
+                GlobalVar.set_value('V',alist[1])
                 GlobalVar.set_value('L',alist[2])
         except Exception as e:
             print("---异常---：", e)
@@ -125,7 +130,7 @@ class SerialWindow(QDialog, Ui_Dialog):
         # 用来在这个文件中传递变量
         self.data = alist
         GlobalVar.set_value('I', alist[0])
-        GlobalVar.set_value('A', alist[1])
+        GlobalVar.set_value('V', alist[1])
         GlobalVar.set_value('L', alist[2])
 
 
