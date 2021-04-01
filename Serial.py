@@ -69,6 +69,7 @@ class SerialWindow(QDialog, Ui_Dialog):
         self.plotElectricity.mpl.start_dynamic_plot()
         # self.plotV.mpl.start_dynamic_ploc()
         self.plotV.mpl.start_dynamic_plot()
+        self.plotL.mpl.start_dynamic_plot()
 
     def stop(self):
         try:
@@ -77,6 +78,7 @@ class SerialWindow(QDialog, Ui_Dialog):
             self.ser.close()
             self.plotElectricity.mpl.stop_dynamic_ploc()
             self.plotV.mpl.stop_dynamic_ploc()
+            self.plotL.mpl.stop_dynamic_ploc()
         except Exception as e:
             print('---结束异常---',e)
 

@@ -14,16 +14,16 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(1135, 524)
+        Dialog.resize(1135, 750)
         self.stopButton = QtWidgets.QPushButton(Dialog)
-        self.stopButton.setGeometry(QtCore.QRect(500, 390, 81, 41))
+        self.stopButton.setGeometry(QtCore.QRect(460, 600, 81, 41))
         font = QtGui.QFont()
         font.setFamily("Adobe Arabic")
         font.setPointSize(16)
         self.stopButton.setFont(font)
         self.stopButton.setObjectName("stopButton")
         self.startButton = QtWidgets.QPushButton(Dialog)
-        self.startButton.setGeometry(QtCore.QRect(180, 390, 81, 41))
+        self.startButton.setGeometry(QtCore.QRect(140, 600, 81, 41))
         font = QtGui.QFont()
         font.setFamily("Adobe Arabic")
         font.setPointSize(16)
@@ -93,6 +93,9 @@ class Ui_Dialog(object):
         self.plotV = VMatplotlibWidget(Dialog)
         self.plotV.setGeometry(QtCore.QRect(650, 280, 331, 151))
         self.plotV.setObjectName("plotV")
+        self.plotL = LMatplotlibWidget(Dialog)
+        self.plotL.setGeometry(QtCore.QRect(650, 460, 331, 181))
+        self.plotL.setObjectName("plotL")
 
         self.retranslateUi(Dialog)
         self.miniumButton.clicked.connect(Dialog.lower)
@@ -107,5 +110,6 @@ class Ui_Dialog(object):
         self.Vlabel.setText(_translate("Dialog", "电压："))
         self.Alabel.setText(_translate("Dialog", "电流："))
         self.Llabel.setText(_translate("Dialog", "保护气流量："))
+from UiDesign.LMatplotlibWidget import LMatplotlibWidget
 from UiDesign.MatplotlibWidget import MatplotlibWidget
 from UiDesign.VMatplotlibWidget import VMatplotlibWidget
