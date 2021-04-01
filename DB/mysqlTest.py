@@ -34,6 +34,7 @@ def insertData(db,a,v,l):
         cursor.execute(sql)
         db.commit()
     except Exception as e:
+        print(e)
         db.rollback()
 
 if __name__ =="__main__":
