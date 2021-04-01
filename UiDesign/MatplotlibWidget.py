@@ -50,12 +50,12 @@ class MyMplCanvas(FigureCanvas):
     '''启动绘制动态图'''
 
     def start_dynamic_plot(self, *args, **kwargs):
-        timer = QtCore.QTimer(self)
-        timer.timeout.connect(self.update_figure)  # 每隔一段时间就会触发一次update_figure函数。
+        self.timer = QtCore.QTimer(self)
+        self.timer.timeout.connect(self.update_figure)  # 每隔一段时间就会触发一次update_figure函数。
         # 列表生成器
         self.I=[0 for i in range(4)]
-        GlobalVar.set_value('I',2)
-        timer.start(1000)  # 触发的时间间隔为1秒。
+        # GlobalVar.set_value('I',2)
+        self.timer.start(1000)  # 触发的时间间隔为1秒。
 
     '''动态图的绘图逻辑可以在这里修改'''
 
@@ -75,6 +75,8 @@ class MyMplCanvas(FigureCanvas):
         self.axes.set_xlabel('动态图：X轴')
         self.axes.grid(True)
         self.draw()
+    def stop_dynamic_ploc(self):
+        self.timer.stop()
 
 
 class MatplotlibWidget(QWidget):

@@ -58,9 +58,9 @@ class SerialWindow(QDialog, Ui_Dialog):
             print(self.ser.port)  # 获取到当前打开的串口名
             print(self.ser.baudrate)  # 获取波特率
         except Exception as e:
-            print("---异常---：", e)
+            print("---打开端口异常---：", e)
         # 数据库对象
-        self.db = pymysql.connect(host="172.20.112.146", port=3306, user="newroot", passwd="newroot",
+        self.db = pymysql.connect(host="172.20.5.251", port=3306, user="newroot", passwd="newroot",
                                   database="digitaltwin")
         # 跨文件变量初始化
         GlobalVar._init()
@@ -69,9 +69,14 @@ class SerialWindow(QDialog, Ui_Dialog):
         self.plotElectricity.mpl.start_dynamic_plot()
 
     def stop(self):
-        self.timer.stop()
-        self.db.close()
-        self.ser.close()
+        try:
+            self.timer.stop()
+            self.db.close()
+            self.ser.close()
+            self.plotElectricity.mpl.stop_dynamic_ploc()
+        except Exception as e:
+            print('---结束异常---',e)
+
 
     # timer每次调用的函数
 
@@ -115,7 +120,7 @@ class SerialWindow(QDialog, Ui_Dialog):
             print("---异常---：", e)
 
     def simReadPort(self):
-        alist = [random.randfloat(0, 10) for i in range(4)]
+        alist = [float(random.randint(0,10)) for i in range(3)]
         print(alist)
         # 用来在这个文件中传递变量
         self.data = alist
