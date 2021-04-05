@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1135</width>
-    <height>750</height>
+    <width>993</width>
+    <height>703</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,10 +16,10 @@
   <widget class="QPushButton" name="stopButton">
    <property name="geometry">
     <rect>
-     <x>460</x>
-     <y>600</y>
-     <width>81</width>
-     <height>41</height>
+     <x>830</x>
+     <y>510</y>
+     <width>111</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="font">
@@ -29,16 +29,16 @@
     </font>
    </property>
    <property name="text">
-    <string>结束</string>
+    <string>停止</string>
    </property>
   </widget>
   <widget class="QPushButton" name="startButton">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>600</y>
-     <width>81</width>
-     <height>41</height>
+     <x>590</x>
+     <y>510</y>
+     <width>111</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="font">
@@ -54,8 +54,8 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>200</y>
+     <x>640</x>
+     <y>60</y>
      <width>181</width>
      <height>27</height>
     </rect>
@@ -82,8 +82,8 @@
   <widget class="QWidget" name="layoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>120</y>
+     <x>200</x>
+     <y>60</y>
      <width>181</width>
      <height>27</height>
     </rect>
@@ -110,8 +110,8 @@
   <widget class="QWidget" name="layoutWidget_3">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>290</y>
+     <x>140</x>
+     <y>400</y>
      <width>244</width>
      <height>27</height>
     </rect>
@@ -138,18 +138,18 @@
   <widget class="MatplotlibWidget" name="plotElectricity" native="true">
    <property name="geometry">
     <rect>
-     <x>650</x>
-     <y>100</y>
-     <width>331</width>
-     <height>161</height>
+     <x>120</x>
+     <y>130</y>
+     <width>371</width>
+     <height>211</height>
     </rect>
    </property>
   </widget>
   <widget class="QSplitter" name="splitter">
    <property name="geometry">
     <rect>
-     <x>1010</x>
-     <y>30</y>
+     <x>850</x>
+     <y>10</y>
      <width>72</width>
      <height>25</height>
     </rect>
@@ -171,20 +171,20 @@
   <widget class="VMatplotlibWidget" name="plotV" native="true">
    <property name="geometry">
     <rect>
-     <x>650</x>
-     <y>280</y>
-     <width>331</width>
-     <height>151</height>
+     <x>580</x>
+     <y>130</y>
+     <width>371</width>
+     <height>211</height>
     </rect>
    </property>
   </widget>
   <widget class="LMatplotlibWidget" name="plotL" native="true">
    <property name="geometry">
     <rect>
-     <x>650</x>
-     <y>460</y>
-     <width>331</width>
-     <height>181</height>
+     <x>120</x>
+     <y>450</y>
+     <width>371</width>
+     <height>221</height>
     </rect>
    </property>
   </widget>

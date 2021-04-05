@@ -60,7 +60,7 @@ class SerialWindow(QDialog, Ui_Dialog):
         except Exception as e:
             print("---打开端口异常---：", e)
         # 数据库对象
-        self.db = pymysql.connect(host="172.20.5.251", port=3306, user="newroot", passwd="newroot",
+        self.db = pymysql.connect(host="172.20.85.220", port=3306, user="newroot", passwd="newroot",
                                   database="digitaltwin")
         # 跨文件变量初始化
         GlobalVar._init()
