@@ -38,12 +38,18 @@ def insertData(db,a,v,l):
         db.rollback()
 
 if __name__ =="__main__":
-    # # 创建数据库
-    # createDatabase()
 
-    # 打开数据库连接
-    db = pymysql.connect(host="172.20.112.146",port=3306,user="newroot", passwd="newroot", database="digitaltwin")
-    createTable(db)
+    db = pymysql.connect(host="172.20.104.85",port=3306,user="newroot", passwd="newroot", database="digitaltwin")
+    # createTable(db)
     insertData(db,0.0,0.0,0.0)
-    # 关闭数据库连接
     db.close()
+    # '''一下内容为中期之前工作，也就是第一次成功远程连接mysql'''
+    # # # 创建数据库
+    # # createDatabase()
+    #
+    # # 打开数据库连接
+    # db = pymysql.connect(host="172.20.112.146",port=3306,user="newroot", passwd="newroot", database="digitaltwin")
+    # createTable(db)
+    # insertData(db,0.0,0.0,0.0)
+    # # 关闭数据库连接
+    # db.close()
