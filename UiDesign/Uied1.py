@@ -51,13 +51,13 @@ class Ui_MainWindow(object):
         self.qualityPrediction.setFont(font)
         self.qualityPrediction.setObjectName("qualityPrediction")
         self.gridLayout.addWidget(self.qualityPrediction, 1, 1, 1, 1)
-        self.machineLearnTrain = QtWidgets.QPushButton(self.layoutWidget)
+        self.WeldingMethodPredict = QtWidgets.QPushButton(self.layoutWidget)
         font = QtGui.QFont()
         font.setFamily("Adobe Arabic")
         font.setPointSize(20)
-        self.machineLearnTrain.setFont(font)
-        self.machineLearnTrain.setObjectName("machineLearnTrain")
-        self.gridLayout.addWidget(self.machineLearnTrain, 0, 1, 1, 1)
+        self.WeldingMethodPredict.setFont(font)
+        self.WeldingMethodPredict.setObjectName("WeldingMethodPredict")
+        self.gridLayout.addWidget(self.WeldingMethodPredict, 0, 1, 1, 1)
         self.layoutWidget1 = QtWidgets.QWidget(self.centralwidget)
         self.layoutWidget1.setGeometry(QtCore.QRect(490, 20, 158, 25))
         self.layoutWidget1.setObjectName("layoutWidget1")
@@ -81,19 +81,8 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         self.closeButton.clicked.connect(MainWindow.close)
-        self.miniumButton.clicked.connect(MainWindow.lower)
+        self.miniumButton.clicked.connect(MainWindow.hide)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
-        # #  窗口美化
-        # MainWindow.setWindowOpacity(0.9)  # 设置窗口透明度
-        # MainWindow.setWindowFlag(QtCore.Qt.FramelessWindowHint)  # 隐藏边框
-        #
-        # self.closeButton.setFixedSize(15,15)
-        # self.miniumButton.setFixedSize(15,15)
-        # self.closeButton.setStyleSheet(
-        #     '''QPushButton{background:#F76677;border-radius:5px;}QPushButton:hover{background:red;}''')
-        # self.miniumButton.setStyleSheet(
-        #     '''QPushButton{background:#6DDF6D;border-radius:5px;}QPushButton:hover{background:green;}''')
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -102,7 +91,6 @@ class Ui_MainWindow(object):
         self.portReceive.setText(_translate("MainWindow", "串口接收"))
         self.weldingParaPredict.setText(_translate("MainWindow", "焊接参数预测"))
         self.qualityPrediction.setText(_translate("MainWindow", "焊后性能预测"))
-        self.machineLearnTrain.setText(_translate("MainWindow", "机器模型训练"))
+        self.WeldingMethodPredict.setText(_translate("MainWindow", "焊接方法预测"))
         # self.miniumButton.setText(_translate("MainWindow", "最小化"))
         # self.closeButton.setText(_translate("MainWindow", "关闭"))
-

@@ -25,6 +25,7 @@ class SerialWindow(QDialog, Ui_Dialog):
             '''QPushButton{background:#F76677;border-radius:5px;}QPushButton:hover{background:red;}''')
         self.miniumButton.setStyleSheet(
             '''QPushButton{background:#6DDF6D;border-radius:5px;}QPushButton:hover{background:green;}''')
+
         self.timer = QtCore.QTimer()
         self.timer.timeout.connect(self.timerStart)
         self.startButton.clicked.connect(self.start)

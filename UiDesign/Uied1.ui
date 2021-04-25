@@ -83,7 +83,7 @@
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QPushButton" name="machineLearnTrain">
+      <widget class="QPushButton" name="WeldingMethodPredict">
        <property name="font">
         <font>
          <family>Adobe Arabic</family>
@@ -91,7 +91,7 @@
         </font>
        </property>
        <property name="text">
-        <string>机器模型训练</string>
+        <string>焊接方法预测</string>
        </property>
       </widget>
      </item>

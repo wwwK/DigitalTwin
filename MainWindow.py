@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QMessageBox, QDi
 from UiDesign.Uied1 import Ui_MainWindow
 import Serial
 from PyQt5 import QtCore
+import PreditWeldingMethod
 
 
 class MainWindow(QWidget, Ui_MainWindow):
@@ -11,6 +12,10 @@ class MainWindow(QWidget, Ui_MainWindow):
         self.diag = QMainWindow()
         self.setupUi(self.diag)
         self.retranslateUi(self.diag)
+        # 子窗口
+        self.preWeldingMethod=PreditWeldingMethod.PredictWeldingMethodWindow()
+        self.serialWindow = Serial.SerialWindow()
+
         self.init()
 
     def init(self):
@@ -26,13 +31,19 @@ class MainWindow(QWidget, Ui_MainWindow):
 
         #  按钮信号与槽的连接
         self.portReceive.clicked.connect(self.openPort)
+        self.WeldingMethodPredict.clicked.connect(self.openWeldingMethod)
 
 
 
     def openPort(self):
-        self.serialWindow =Serial.SerialWindow()
+
         self.serialWindow.serialdiag.show()
         self.serialWindow.serialdiag.exec_()
+
+    def openWeldingMethod(self):
+        print(1)
+        self.preWeldingMethod.preDiag.show()
+        self.preWeldingMethod.preDiag.exec_()
 
 
 

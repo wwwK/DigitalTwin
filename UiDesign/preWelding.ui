@@ -105,7 +105,7 @@
     <string>厚度</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox">
+  <widget class="QComboBox" name="MC">
    <property name="geometry">
     <rect>
      <x>230</x>
@@ -121,7 +121,87 @@
    </item>
    <item>
     <property name="text">
-     <string>B</string>
+     <string>B级一般强度结构钢</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>D级一般强度结构钢</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>E级一般强度结构钢</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>A级高强度结构钢</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>D级高强度结构钢</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>E级高强度结构钢</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>F级高强度结构钢</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLineEdit" name="height">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>150</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="width">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>340</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="JT">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>250</y>
+     <width>141</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>对接</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>角接</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>T型接</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>搭接</string>
     </property>
    </item>
   </widget>
