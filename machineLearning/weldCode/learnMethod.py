@@ -196,6 +196,21 @@ def adaClassify(datToClass, classifierArr):
     return np.sign(aggClassEst)
 
 
+def preWelding(height,width):
+    dataArr, yArr = loadDataSet('machineLearning\welding.txt',2)
+    print(height)
+    print(width)
+    dataArr=np.mat(dataArr)
+    '''选择yArr的第一项作为目标特征，这里是焊接方法，0为埋弧焊，1为二保焊'''
+    classLabels=np.array(yArr)[:,0].reshape(1,-1)
+    weakClassArr, aggClassEst = adaBoostTrainDS(dataArr, classLabels)
+    # print(type(dataArr))
+    # print(classLabels)
+    # print(weakClassArr)
+    '''测试数据，共两个，第一个为15mm厚、1mm宽，输出为0，正确'''
+    return adaClassify([height, width], weakClassArr)
+
+
 if __name__ == '__main__':
     dataArr, yArr = loadDataSet('../welding.txt',2)
     dataArr=np.mat(dataArr)
@@ -206,4 +221,5 @@ if __name__ == '__main__':
     print(classLabels)
     print(weakClassArr)
     '''测试数据，共两个，第一个为15mm厚、1mm宽，输出为0，正确'''
-    print(adaClassify([[15, 1], [8, 5]], weakClassArr))
+    # print(adaClassify([[15, 1], [8, 5]], weakClassArr))
+    print(type(adaClassify([8, 5], weakClassArr)))
