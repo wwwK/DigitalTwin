@@ -112,13 +112,28 @@ def lwlr(testPoint, xArr, yArr, k=1.0):
 #     return yHat
 
 
+def perPara(height,width,object):
+    xArr, yArr = loadDataSet('machineLearning\welding.txt', 2)
+    # print(xArr)
+    # print(yArr)
+    yMat = np.array(yArr)
+    # print(yMat)
+    # lwlr输入的yArr的形状是一行n列的形式，每列对应着xArr的结果值
+    '''所以每次只能输出一种属性值，暂时先这样吧'''
+    # yMat[:,1]进行计算的是3焊丝直径，这样xArr只用了板缝和间隙，并没有用焊接方法
+    # print(lwlr([height, width], xArr, yMat[:, 1].reshape(1, -1), k=0.5))
+    return lwlr([height, width], xArr, yMat[:, object].reshape(1, -1), k=0.5)
+
+
 if __name__ == '__main__':
     xArr,yArr=loadDataSet("../welding.txt",2)
     print(xArr)
-    print(yArr)
+    # print(yArr)
     yMat=np.array(yArr)
+    print(yMat)
     # lwlr输入的yArr的形状是一行n列的形式，每列对应着xArr的结果值
     '''所以每次只能输出一种属性值，暂时先这样吧'''
+    # yMat[:,1]进行计算的是3焊丝直径，这样xArr只用了板缝和间隙，并没有用焊接方法
     print(lwlr([8.0,5.0],xArr,yMat[:,1].reshape(1,-1),k=0.5))
 
 
