@@ -40,7 +40,7 @@ class DigitalTwinShow(QDialog,Ui_Dialog):
             try:
                 client.send(command.encode(encoding="utf-8"))
                 print("发送命令：" + command)
-                time.sleep(3)
+                time.sleep(10)
             except:
                 print("发送命令失败")
 
