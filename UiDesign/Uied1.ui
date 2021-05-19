@@ -70,7 +70,7 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QPushButton" name="qualityPrediction">
+      <widget class="QPushButton" name="digitalTwinShow">
        <property name="font">
         <font>
          <family>Adobe Arabic</family>
@@ -78,7 +78,7 @@
         </font>
        </property>
        <property name="text">
-        <string>焊后性能预测</string>
+        <string>孪生展示</string>
        </property>
       </widget>
      </item>

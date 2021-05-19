@@ -4,6 +4,7 @@ from UiDesign.Uied1 import Ui_MainWindow
 import Serial
 from PyQt5 import QtCore
 import PreditWeldingMethod
+import DigitalTwinShow
 
 
 class MainWindow(QWidget, Ui_MainWindow):
@@ -15,6 +16,7 @@ class MainWindow(QWidget, Ui_MainWindow):
         # 子窗口
         self.preWeldingMethod=PreditWeldingMethod.PredictWeldingMethodWindow()
         self.serialWindow = Serial.SerialWindow()
+        self.digitalShow=DigitalTwinShow.DigitalTwinShow()
 
         self.init()
 
@@ -32,6 +34,7 @@ class MainWindow(QWidget, Ui_MainWindow):
         #  按钮信号与槽的连接
         self.portReceive.clicked.connect(self.openPort)
         self.WeldingMethodPredict.clicked.connect(self.openWeldingMethod)
+        self.digitalTwinShow.clicked.connect(self.openShow)
 
 
 
@@ -45,6 +48,10 @@ class MainWindow(QWidget, Ui_MainWindow):
         self.preWeldingMethod.preDiag.show()
         self.preWeldingMethod.preDiag.exec_()
 
+    def openShow(self):
+        print(4)
+        self.digitalShow.digitalShowDiag.show()
+        self.digitalShow.digitalShowDiag.exec_()
 
 
 
