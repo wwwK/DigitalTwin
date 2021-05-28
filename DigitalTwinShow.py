@@ -29,13 +29,13 @@ class DigitalTwinShow(QDialog,Ui_Dialog):
         print(3)
         try:
             client = socket.socket()  # 有一些默认参数，即可使用ipv4，这一句是声明socket类型和返回socket连接对象
-            client.connect(("172.20.14.164", 6969))
+            client.connect(("172.20.3.233", 6969))
         except:
             print("打开展示端口错误")
         commandList=("roslaunch ur_gazebo ur5.launch;",
                      "roslaunch ur5_moveit_config ur5_moveit_planning_execution.launch sim:=true;",
                      "roslaunch ur5_moveit_config moveit_rviz.launch config:=true;",
-                     "rosrun utest scence_attach.py ;")
+                     "rosrun utest scence_attachytbak.py ;")
         for command in commandList:
             try:
                 client.send(command.encode(encoding="utf-8"))

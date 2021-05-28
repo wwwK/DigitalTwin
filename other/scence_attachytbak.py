@@ -86,16 +86,16 @@ class MoveItDemo:
         
         # Set the length, width and height of the table and boxes设置桌子、盒子的尺寸
         table_size = [0.2, 0.7, 0.01]'''
-        box1_size = [0.40*42/35, 0.60*42/35, 0.10*42/35]
-        box2_size = [ 0.10*42/35,0.60*42/35, 0.60*42/35]
-        box3_size = [0.40*42/35,0.05*42/35,0.30*42/35 ]
+        box1_size = [3.00*42/35, 1.60*42/35, 0.050*42/35]
+        box2_size = [ 0.050*42/35,1.60*42/35, 0.60*42/35]
+        box3_size = [0.40*42/35,0.025*42/35,0.30*42/35 ]
     
         #设置位姿
         box1_pose = PoseStamped()
         box1_pose.header.frame_id = reference_frame
-        box1_pose.pose.position.x = 0.30*42/35
-        box1_pose.pose.position.y = 0.60*42/35
-        box1_pose.pose.position.z = 0.05*42/35
+        box1_pose.pose.position.x = (0.30-2)*42/35
+        box1_pose.pose.position.y = (0.60-1)*42/35
+        box1_pose.pose.position.z = 0.75*42/35
         box1_pose.pose.orientation.w = 1.0   
 	#将立方体加到规划场景中
         scene.add_box(box1_id, box1_pose, box1_size)
@@ -103,7 +103,7 @@ class MoveItDemo:
         box2_pose = PoseStamped()
         box2_pose.header.frame_id = reference_frame
         box2_pose.pose.position.x = 0.05*42/35
-        box2_pose.pose.position.y = 0.60*42/35
+        box2_pose.pose.position.y = (0.60-1)*42/35
         box2_pose.pose.position.z = 0.30*42/35
         box2_pose.pose.orientation.w = 1.0   
         scene.add_box(box2_id, box2_pose, box2_size)
