@@ -31,6 +31,10 @@ class SerialWindow(QDialog, Ui_Dialog):
         self.startButton.clicked.connect(self.start)
         self.stopButton.clicked.connect(self.stop)
 
+        self.AlineEdit.setText(str(250.3))
+        self.VlineEdit.setText(str(49.9))
+        self.LlineEdit.setText(str(19.1))
+
     #     # 打开数据库连接
     #     db = pymysql.connect(host="172.20.112.146",port=3306,user="newroot", passwd="newroot", database="digitaltwin")
     #     createTable(db)

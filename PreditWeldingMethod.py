@@ -38,8 +38,13 @@ class PredictWeldingMethodWindow(QDialog,Ui_Dialog):
     def startPara(self):
         height=float(self.height.text())
         width=float(self.width.text())
-        hansi=machineLearning.weldCode.learnPara.perPara(height,width,1)
-        self.HanSi.setText(str(float(hansi[[0]])))
+        # hansi=machineLearning.weldCode.learnPara.perPara(height,width,1)
+        # self.HanSi.setText(str(float(hansi[[0]])))
+
+
+        qiti=machineLearning.weldCode.learnPara.perPara(height,width,9)
+        self.QitiSuDo.setText(str(float(qiti[[0]])))
+
         A=machineLearning.weldCode.learnPara.perPara(height,width,3)
         V=machineLearning.weldCode.learnPara.perPara(height,width,4)
         self.DianLiu.setText(str(float(A[[0]])))
